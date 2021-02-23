@@ -67,6 +67,7 @@ async function include(src, strict=true)
 async function init()
 {
 	await include('./resources/js/config.js');
+	await include('./resources/js/style.js');
 };
 
 init();
