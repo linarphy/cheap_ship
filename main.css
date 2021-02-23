@@ -19,17 +19,16 @@ body
 }
 header
 {
-	height: 50px;
+	height: 100px;
 }
 main
 {
-	border: black solid 1px;
-	height: 700px;
+	border: solid 1px;
 }
 #game
 {
 	position: relative;
-	border: black solid 1px;
+	border: solid 1px;
 }
 #game svg
 {
@@ -37,5 +36,31 @@ main
 }
 footer
 {
-	height: 50px;
+	height: 100px;
+}
+
+@media(prefers-color-scheme: light)
+{
+	body
+	{
+		background: white;
+		color: black;
+	}
+	main, #game
+	{
+		border-color: black;
+	}
+}
+
+@media(prefers-color-scheme: dark)
+{
+	body
+	{
+		background: black;
+		color: white;
+	}
+	main, #game
+	{
+		border-color: white;
+	}
 }
