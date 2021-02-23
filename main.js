@@ -13,6 +13,13 @@ var GLOBALS = {
 
 GLOBALS.__get('core')['scripts']=['main.js'];
 
+document.addEventListener('keydown', (e) => {
+	GLOBALS['keys_pressed'][e.key]=true;
+});
+document.addEventListener('keyup', (e) => {
+	delete GLOBALS['keys_pressed'][e.key];
+});
+
 async function include(src, strict=true)
 {
 	try
