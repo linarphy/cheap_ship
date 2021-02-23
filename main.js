@@ -67,7 +67,10 @@ async function include(src, strict=true)
 async function init()
 {
 	await include('./resources/js/config.js');
+	await include('./resources/js/lang.js');
 	await include('./resources/js/style.js');
+	await include('./game/main.js');
+
 };
 
 init();
