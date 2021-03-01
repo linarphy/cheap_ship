@@ -11,13 +11,15 @@ var GLOBALS = {
 	}
 };
 
-GLOBALS.__get('core')['scripts']=['main.js'];
+GLOBALS.__get('core')['scripts'] = ['main.js'];
+GLOBALS['keys_pressed'] = [];
+GLOBALS['canvas'] = document.getElementById('game');
 
 document.addEventListener('keydown', (e) => {
-	GLOBALS['keys_pressed'][e.key]=true;
+	GLOBALS.__get('keys_pressed')[e.key]=true;
 });
 document.addEventListener('keyup', (e) => {
-	delete GLOBALS['keys_pressed'][e.key];
+	delete GLOBALS.__get('keys_pressed')[e.key];
 });
 
 async function include(src, strict=true)
@@ -77,7 +79,9 @@ async function init()
 	await include('./resources/js/lang.js');
 	await include('./resources/js/style.js');
 	await include('./game/main.js');
-
+	await load();
+	GLOBALS['game'] = new Game();
+	GLOBALS['game'].run();
 };
 
 init();

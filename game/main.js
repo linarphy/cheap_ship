@@ -1,3 +1,12 @@
+async function load()
+{
+	await include('./game/cooldown.js');
+	await include('./game/ship.js');
+	await include('./game/shoot.js');
+	await include('./game/enemy.js');
+	await include('./game/level.js');
+};
+
 class Game
 {
 	constructor ()
@@ -5,42 +14,48 @@ class Game
 		this.shoots = [];
 		this.enemies = [];
 		this.is_running = false;
-		this.ship = new Ship();
-		this.level = new Level('level_1');
+		this.ship = new Ship(this);
+		this.level = new Level(this);
 	}
 
 	run ()
 	/* Run the game */
 	{
 		this.is_running=true;
-		this.ship.init();
 		this.loop();
 	}
 
 	loop ()
 	/* Main loop of the game */
 	{
-		if (GLOBALS['keys_pressed']['p']) // Pause the game when p is pressed
+		if (GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['pause']]) // Pause the game when p is pressed
 		{
 			this.is_running = false;
+		}
+
+		if (!this.is_running)
+		{
 			return 0;
 		}
 
+		/* Level logic */
+		this.level.manage();
+
 		/* Movement Logic */
 		movement = [0, 0]
-		if (GLOBALS['keys_pressed']['ArrowLeft'])
+		if (GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['left']])
 		{
 			movement[0] -= this.ship.speed[0];
 		}
-		else if (GLOBALS['keys_pressed']['ArrowRigt'])
+		else if (GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['right']])
 		{
 			movement[0] += this.ship.speed[0];
 		}
-		if (GLOBALS['keys_pressed']['ArrowDown'])
+		if (GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['down']])
 		{
 			movement[1] -= this.ship.speed[1];
 		}
-		else if (GLOBALS['keys_pressed']['ArrowUp'])
+		else if (GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['up']])
 		{
 			movement[1] += this.ship.speed[1];
 		}
@@ -50,9 +65,9 @@ class Game
 		}
 
 		/* User shoot logic */
-		if (GLOBALS['keys_pressed'][' ']) // Shoot when pressing spacebar
+		if (GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['shoot']]) // Shoot when pressing spacebar
 		{
-			if (this.ship.can_shoot)
+			if (!this.ship.cooldown.shoot.active)
 			{
 				this.ship.shoot();
 			}
@@ -74,15 +89,26 @@ class Game
 			enemy.move();
 			enemy.check_collision();
 		}
+
+		/* Draws */
+		for (let enemy of this.enemies)
+		{
+			enemy.draw();
+		}
+		for (let shoot of this.shoots)
+		{
+			shoot.draw();
+		}
+		this.ship.draw();
+
 		window.requestAnimationFrame(() => {
 			this.loop();
 		});
 	}
 
-	createShoot (position, speed, element)
+	create_shoot (position, speed, poly)
 	{
-		shoot = new Shoot(position, speed, element);
-		document.getElementById('game').appendChild(shoot.element);
+		shoot = new Shoot(position, speed, poly);
 		this.shoots.push(shoot);
 	}
 }
