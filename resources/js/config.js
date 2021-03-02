@@ -54,7 +54,7 @@ CONFIG.__get('game').__get('border').__get(1)['max']=500;
 /* Base HP of the ship */
 CONFIG.__get('game').__get('ship')['hp']=3;
 /* Base speed of the ship */
-CONFIG.__get('game').__get('ship')['speed']=5;
+CONFIG.__get('game').__get('ship')['speed']=[5, 5];
 /* Poly of the ship */
 CONFIG.__get('game').__get('ship')['poly']=[[25, 25], [50, 0], [25, 50], [0, 0]];
 /* [COOLDOWN] */
