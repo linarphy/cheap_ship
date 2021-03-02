@@ -25,15 +25,15 @@ class Cooldown
 	manage ()
 	/* Manage each cooldown time */
 	{
-		if (this.invicible.active)
+		if (this.invincible.active)
 		{
-			if (this.invicible.time < 0)
+			if (this.invincible.time < 0)
 			{
-				this.invicible.active = false;
+				this.invincible.active = false;
 			}
 			else
 			{
-				this.invicible.time--;
+				this.invincible.time--;
 			}
 		}
 		if (this.shoot.active)
