@@ -65,7 +65,7 @@ function check_type(value, type = 'boolean', structure = [], notNan = false)
 	}
 
 	let actual_type = Object.prototype.toString.call(value); // cannot be checked with typeof, check other possibilities
-	if (!actual_type.substring(actual_type.indexOf(' '), actual_type(']')).toLowerCase() === type) // bad type
+	if (!actual_type.substring(actual_type.indexOf(' '), actual_type.indexOf(']')).toLowerCase() === type) // bad type
 	{
 		return false
 	}
