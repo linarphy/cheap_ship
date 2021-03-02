@@ -17,6 +17,7 @@ class Level
 		this.game = game;
 		this.file = file;
 		this.id = id;
+		this.ready = false;
 		this.launch();
 	}
 
@@ -31,13 +32,14 @@ class Level
 		{
 			this.game.enemies.push(new Enemy(this.game, enemy['position'], enemy['speed'], enemy['hp'], enemy['pattern'], enemy['poly']));
 		}
+		this.ready = true;
 	}
 
 	async manage ()
 	{
-		if (this.game.enemies.length < 1)
+		if (this.game.enemies.length < 1 && this.ready)
 		{
-			this.game.level = new Level(this.game, CONFIG['game']['level'][this.is + 1], this.id);
+			this.game.level = new Level(this.game, CONFIG['game']['level'][this.id + 1], this.id);
 		}
 	}
 }
