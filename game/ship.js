@@ -27,7 +27,7 @@ class Ship
 		this.position = [0, 0];
 		this.poly = GLOBALS['screen'].to_poly(this.position, GLOBALS['screen'].to_vectors(CONFIG['game']['ship']['poly']));
 		this.cooldown = new Cooldown();
-		this.color = GLOBALS['game']['ship']['color'];
+		this.color = CONFIG['game']['ship']['color'];
 		this.game = game;
 		this.draw();
 	}
