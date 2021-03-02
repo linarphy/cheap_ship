@@ -11,12 +11,14 @@ class Cooldown
 			throw 'default shoot cooldown time has an unexpected value or type';
 		}
 		this.invincible = {
+			game: game,
 			active: false,
 			time: 0,
 			reset: function reset()
 			{
 				this.time = CONFIG['game']['ship']['cooldown']['invincible_time'];
 				this.active = true;
+				this.game.ship.color=CONFIG['game']['ship']['color'];
 			},
 		};
 		this.shoot = {
@@ -26,7 +28,6 @@ class Cooldown
 			{
 				this.time = CONFIG['game']['ship']['cooldown']['shoot_time'];
 				this.active = true;
-				game.ship.color=CONFIG['game']['ship']['color'];
 			},
 		};
 	}
