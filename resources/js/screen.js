@@ -19,7 +19,7 @@ GLOBALS['screen'] = {
 		for (let vector of vectors)
 		{
 			polygon.push(start_position);
-			start_pos = [start_pos[0] + vector[0], start_pos[1] + vector[1]];
+			start_position = [start_position[0] + vector[0], start_position[1] + vector[1]];
 		}
 		return polygon;
 	},
