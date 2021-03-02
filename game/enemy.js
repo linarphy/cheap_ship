@@ -76,6 +76,7 @@ class Enemy
 		{
 			this.position = coordinate;
 			this.poly = GLOBALS['screen'].to_poly(this.position, GLOBALS['screen'].to_vectors(this.poly));
+			this.step++;
 		}
 		else
 		{
