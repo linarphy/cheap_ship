@@ -79,6 +79,7 @@ async function init()
 	await include('./resources/js/lang.js');
 	LANG = await load_lang();
 	GLOBALS['canvas'] = document.getElementById('game');
+	await include('./resources/js/screen.js');
 	await include('./resources/js/style.js');
 	await include('./game/main.js');
 	await load();
