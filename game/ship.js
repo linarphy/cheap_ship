@@ -45,7 +45,7 @@ class Ship
 	move (movement)
 	/* Moves the ship as the given movement */
 	{
-		coordinate = [movement[0]+this.position[0], movement[1]+this.position[1]];
+		let coordinate = [movement[0]+this.position[0], movement[1]+this.position[1]];
 		coordinate = this.check_coordinate(coordinate);
 		this.position = coordinate;
 		this.poly = GLOBALS['screen'].to_poly(this.coordinate, GLOBALS['screen'].to_vectors(this.poly));
