@@ -4,7 +4,7 @@ class Enemy
 	{
 		this.step = 0;
 		this.game = game;
-		this.coordinate = position;
+		this.position = position;
 		this.speed = speed;
 		this.hp = hp;
 		this.pattern = pattern;
