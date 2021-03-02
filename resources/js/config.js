@@ -51,6 +51,10 @@ CONFIG.__get('game').__get('border').__get(1)['max']=500;
 /* [/1] */
 /* [/BORDER] */
 /* [SHIP] */
+/* Base color of the ship */
+CONFIG.__get('game').__get('ship')['color']=[0, 0, 255];
+/* Color of the ship when invincible */
+CONFIG.__get('game').__get('ship')['color_take_damage']=[255, 0, 0];
 /* Base HP of the ship */
 CONFIG.__get('game').__get('ship')['hp']=3;
 /* Base speed of the ship */

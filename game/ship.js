@@ -18,12 +18,16 @@ class Ship
 		{
 			throw 'unexpected type of default poly ship';
 		}
+		if (!check_type(CONFIG['game']['ship']['color'], 'array', [3], true))
+		{
+			throw 'unexpected type of default color ship';
+		}
 		this.hp = CONFIG['game']['ship']['hp'];
 		this.speed = CONFIG['game']['ship']['speed'];
 		this.position = [0, 0];
 		this.poly = GLOBALS['screen'].to_poly(this.position, GLOBALS['screen'].to_vectors(CONFIG['game']['ship']['poly']));
 		this.cooldown = new Cooldown();
-		this.color = [0, 0, 0];
+		this.color = GLOBALS['game']['ship']['color'];
 		this.game = game;
 		this.draw();
 	}
@@ -96,7 +100,7 @@ class Ship
 		{
 			if (!this.cooldown.invincible.active)
 			{
-				this.color=[255, 0, 0];
+				this.color = CONFIG['game']['ship']['color_take_damage'];
 				this.hp -= damage;
 				if (this.hp < 1)
 				{
