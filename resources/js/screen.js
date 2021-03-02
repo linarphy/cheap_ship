@@ -136,7 +136,7 @@ GLOBALS['screen'] = {
 				theta_min += 2 * Math.PI;
 			}
 			let link_vectors = this.collision_get_links_vectors(vector_side, theta_min, theta_max, reverse_vector_polygon_1),
-				link_polygons = [to_poly(start_point, link_vectors[0]), to_poly(end_point, link_vectors[1])];
+				link_polygons = [this.to_poly(start_point, link_vectors[0]), this.to_poly(end_point, link_vectors[1])];
 			if (this.check_inside(polygon_1[0], link_polygons[0]))
 			{
 				return true;
