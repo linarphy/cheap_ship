@@ -26,6 +26,7 @@ class Cooldown
 			{
 				this.time = CONFIG['game']['ship']['cooldown']['shoot_time'];
 				this.active = true;
+				GLOBALS['game'].ship.color=[0, 0, 0];
 			},
 		};
 	}

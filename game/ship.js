@@ -38,7 +38,7 @@ class Ship
 				return 0;
 			}
 		}
-		GLOBALS['screen'].draw_poly(this.poly);
+		GLOBALS['screen'].draw_poly(this.poly, 'stroke', 'rgb('+this.color[0]+','+this.color[1]+','+this.color[2]+')');
 	}
 
 	check_coordinate (coordinate)
@@ -96,6 +96,7 @@ class Ship
 		{
 			if (!this.cooldown.invincible.active)
 			{
+				this.color=[255, 0, 0];
 				this.hp -= damage;
 				if (this.hp < 1)
 				{

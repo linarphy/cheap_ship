@@ -80,7 +80,6 @@ class Enemy
 		}
 		else
 		{
-			console.log('destroyed at line 83');
 			this.destroy();
 		}
 	}
@@ -91,7 +90,6 @@ class Enemy
 		if (this.hp < 1)
 		{
 			this.destroy();
-			console.log('destroyed at line 94');
 		}
 	}
 
