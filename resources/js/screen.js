@@ -93,6 +93,21 @@ GLOBALS['screen'] = {
 		}
 		return [link_vect, reverse_link_vect];
 	},
+	check_inside: function (point, poly)
+	{
+		// adapted from https://stackoverflow.com/questions/22521982/check-if-point-is-inside-a-polygon (adapted by markkillah from http://alienryderflex.com/polygon/)
+		var i, j=poly.length-1;
+		var odd = 0;
+
+		for (i=0; i<poly.length; i++) {
+			if ((poly[i][1] < point[1] && poly[j][1] >= point[1] || poly[j][1] < point[1] && poly[i][1] >= point[1])
+				&& (poly[i][0] <= point[0] || poly[j][0] <= point[0])) {
+				odd ^= (poly[i][0] + (point[1]-poly[i][1]) / (poly[j][1]-poly[i][1]) * (poly[j][0] - poly[i][0]) < point[0]);
+			}
+			j=i;
+		}
+		return odd == 1;
+	},
 	check_collision: function (polygon_1, polygon_2)
 	{
 		if (this.check_inside(polygon_1[0], polygon_2))
