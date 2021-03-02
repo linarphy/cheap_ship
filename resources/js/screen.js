@@ -177,6 +177,7 @@ GLOBALS['screen'] = {
 	},
 	clear: function ()
 	{
+		let ctx = GLOBALS['canvas'].getContext('2d');
 		ctx.clearRect(0, 0, CONFIG['game']['border'][0]['max'] - CONFIG['game']['border'][0]['min'], CONFIG['game']['border'][1]['max'] - CONFIG['game']['border'][1]['min']);
 	},
 }
