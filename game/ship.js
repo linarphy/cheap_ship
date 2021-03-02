@@ -46,10 +46,6 @@ class Ship
 		if (check_type(coordinate, 'array', [2], true))
 		{
 			let directions=[0, 1];
-			if (!check_type(CONFIG['game']['border'], 'array', [2, [2, 2]], true))
-			{
-				throw 'game border has an unexpected type or value';
-			}
 			for (let direction of directions)
 			{
 				if (coordinate[direction] < CONFIG['game']['border'][direction]['min'])

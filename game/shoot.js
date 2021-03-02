@@ -34,9 +34,9 @@ class Shoot
 	check_coordinate (coordinate)
 	/* Checks if the shoot is drawable, destroy it if not */
 	{
-		if (!check_type(CONFIG['game']['border'], 'array', [2, [2, 2]], true))
+		if (!check_type(coordinate, 'array', [2], true))
 		{
-			throw 'game border has an unexpected type or value';
+			throw 'coordinate has an unexpected type or value';
 		}
 		let directions=[0, 1];
 		for (let direction of directions)

@@ -48,10 +48,6 @@ class Enemy
 		{
 			throw 'coordinate has an unexpected type or value';
 		}
-		if (!check_type(CONFIG['game']['border'], 'array', [2, [2, 2]], true))
-		{
-			throw 'game border has an unexpected type or value';
-		}
 		let directions = [0, 1];
 		for (let direction of directions)
 		{
