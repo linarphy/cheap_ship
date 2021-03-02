@@ -28,7 +28,6 @@ class Game
 	async loop ()
 	/* Main loop of the game */
 	{
-		GLOBALS['screen'].clear();
 		for (let key in CONFIG['game']['shortcut'])
 		{
 			if (!check_type(key, 'string', ['.']))
@@ -45,6 +44,7 @@ class Game
 		{
 			return 0;
 		}
+		GLOBALS['screen'].clear();
 
 		/* Level logic */
 		await this.level.manage();
