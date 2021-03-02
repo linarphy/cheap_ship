@@ -66,7 +66,7 @@ CONFIG.__get('game').__get('ship').__get('cooldown')['shoot_time']=30;
 /* [/SHIP] */
 /* [SHOOT] */
 /* Base speed of missile */
-CONFIG.__get('game').__get('shoot')['speed']=5;
+CONFIG.__get('game').__get('shoot')['speed']=[5, 5];
 /* Base poly of missile */
 CONFIG.__get('game').__get('shoot')['poly']=[[0, 0], [50, 0], [15, 50], [15, 0]];
 /* Base damage done by missile */

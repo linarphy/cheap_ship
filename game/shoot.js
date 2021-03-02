@@ -64,7 +64,7 @@ class Shoot
 		else
 		{
 			this.position = coordinate;
-			this.poly = GLOBALS['screen'].to_poly(this.coordinate, GLOBALS['screen'].to_vectors(this.poly));
+			this.poly = GLOBALS['screen'].to_poly(this.position, GLOBALS['screen'].to_vectors(this.poly));
 		}
 	}
 
