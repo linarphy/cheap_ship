@@ -13,7 +13,7 @@ class Level
 		let level_data = await get_json(this.file, data => data);
 		for (let enemy of level_data['enemies'])
 		{
-			this.game.enemies.push(new Enemy(this.game, enemy['position'], enemy['speed'], enemy['hp'], ennemy['pattern'], enemy['poly']));
+			this.game.enemies.push(new Enemy(this.game, enemy['position'], enemy['speed'], enemy['hp'], enemy['pattern'], enemy['poly']));
 		}
 	}
 
