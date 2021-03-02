@@ -50,6 +50,7 @@ class Shoot
 				this.is_destroyed = true;
 			}
 		}
+		return coordinate;
 	}
 
 	move ()
