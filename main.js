@@ -13,7 +13,6 @@ var GLOBALS = {
 
 GLOBALS.__get('core')['scripts'] = ['main.js'];
 GLOBALS['keys_pressed'] = [];
-GLOBALS['canvas'] = document.getElementById('game');
 
 document.addEventListener('keydown', (e) => {
 	GLOBALS.__get('keys_pressed')[e.key]=true;
@@ -73,10 +72,13 @@ async function include(src, strict=true)
 	}
 };
 
+var LANG = {};
 async function init()
 {
 	await include('./resources/js/config.js');
 	await include('./resources/js/lang.js');
+	LANG = await load_lang();
+	GLOBALS['canvas'] = document.getElementById('game');
 	await include('./resources/js/style.js');
 	await include('./game/main.js');
 	await load();

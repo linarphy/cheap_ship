@@ -40,11 +40,11 @@ class Enemy
 	move ()
 	/* Moves the enemy */
 	{
-		if (step > pattern.length)
+		if (this.step > this.pattern.length)
 		{
-			step = 0;
+			this.step = 0;
 		}
-		coordinate = [this.speed[0]*this.pattern[step][0]+this.position[0], this.speed[1]*this.pattern[step][1]+this.position[1]]
+		coordinate = [this.speed[0]*this.pattern[this.step][0]+this.position[0], this.speed[1]*this.pattern[this.step][1]+this.position[1]]
 		if (this.check_coordinate(coordinate))
 		{
 			this.position = coordinate;

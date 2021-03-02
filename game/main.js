@@ -42,7 +42,7 @@ class Game
 		this.level.manage();
 
 		/* Movement Logic */
-		movement = [0, 0]
+		let movement = [0, 0]
 		if (GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['left']])
 		{
 			movement[0] -= this.ship.speed[0];
