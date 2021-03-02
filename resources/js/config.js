@@ -59,9 +59,9 @@ CONFIG.__get('game').__get('ship')['speed']=[5, 5];
 CONFIG.__get('game').__get('ship')['poly']=[[25, 25], [50, 0], [25, 50], [0, 0]];
 /* [COOLDOWN] */
 /* Number of frame during ship invincibility */
-CONFIG.__get('game').__get('ship').__get('cooldown')['invincible_time']=30;
+CONFIG.__get('game').__get('ship').__get('cooldown')['invincible_time']=100;
 /* Number of frame between each shoot */
-CONFIG.__get('game').__get('ship').__get('cooldown')['shoot_time']=30;
+CONFIG.__get('game').__get('ship').__get('cooldown')['shoot_time']=100;
 /* [/COOLDOWN] */
 /* [/SHIP] */
 /* [SHOOT] */
