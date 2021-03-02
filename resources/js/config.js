@@ -21,7 +21,7 @@ CONFIG.__get('user')['lang']='en';
 CONFIG.__get('game')['collision_damage']=2;
 /* [LEVEL] */
 /* level 1 */
-CONFIG.__get('game').__get('level')[0]='./level/1.json';
+CONFIG.__get('game')['level']=['./level/1.json'];
 /* [SHORTCUT] */
 /* Pause the game */
 CONFIG.__get('game').__get('shortcut')['pause']='p';
