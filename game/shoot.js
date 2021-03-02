@@ -45,7 +45,7 @@ class Shoot
 			{
 				this.is_destroyed = true;
 			}
-			else if (coordinate[direction] > CONFIG['game']['border'][direction]['max']+this.size[direction])
+			else if (coordinate[direction] > CONFIG['game']['border'][direction]['max'])
 			{
 				this.is_destroyed = true;
 			}
