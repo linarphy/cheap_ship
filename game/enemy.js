@@ -33,6 +33,7 @@ class Enemy
 		this.hp = hp;
 		this.pattern = pattern;
 		this.poly = GLOBALS['screen'].to_poly(this.position, GLOBALS['screen'].to_vectors(poly));
+		this.draw();
 	}
 
 	draw ()

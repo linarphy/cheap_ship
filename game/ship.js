@@ -20,11 +20,12 @@ class Ship
 		}
 		this.hp = CONFIG['game']['ship']['hp'];
 		this.speed = CONFIG['game']['ship']['speed'];
-		this.poly = CONFIG['game']['ship']['poly'];
 		this.position = [0, 0];
+		this.poly = GLOBALS['screen'].to_poly(this.position, GLOBALS['screen'].to_vectors(CONFIG['game']['ship']['poly']));
 		this.cooldown = new Cooldown();
 		this.color = [0, 0, 0];
 		this.game = game;
+		this.draw();
 	}
 
 	draw ()

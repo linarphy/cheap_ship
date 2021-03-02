@@ -21,8 +21,9 @@ class Shoot
 		this.game = game;
 		this.position = position;
 		this.speed = speed;
-		this.poly = poly;
+		this.poly = GLOBALS['screen'].to_poly(this.position, to_vectors(poly));
 		this.is_destroyed = false;
+		this.draw();
 	}
 
 	draw ()
