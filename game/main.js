@@ -88,7 +88,7 @@ class Game
 		for (let shoot of this.shoots)
 		{
 			shoot.move();
-			shoot.chek_collision();
+			shoot.check_collision();
 		}
 
 		/* Enemies logic */
