@@ -28,7 +28,7 @@ class Game
 	async loop ()
 	/* Main loop of the game */
 	{
-		for (let key of CONFIG['game']['shortcut'])
+		for (let key in CONFIG['game']['shortcut'])
 		{
 			if (!check_type(key, 'string', ['.']))
 			{

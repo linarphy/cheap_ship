@@ -14,7 +14,7 @@ class Shoot
 		{
 			throw 'speed has an unexpected type or value';
 		}
-		if (!check_type(poly, 'array', ['.', [2]], true))
+		if (!check_type(poly, 'array', ['.', 2], true))
 		{
 			throw 'poly has an unexpected type or value';
 		}
