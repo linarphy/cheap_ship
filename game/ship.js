@@ -52,9 +52,9 @@ class Ship
 				{
 					coordinate[direction] = CONFIG['game']['border'][direction]['min'];
 				}
-				else if (coordinate[direction] > CONFIG['game']['border'][direction]['max']+CONFIG['game']['ship'][direction]['min'])
+				else if (coordinate[direction] > CONFIG['game']['border'][direction]['max']])
 				{
-					coordinate[direction] = CONFIG['game']['border'][direction]['max']+CONFIG['game']['ship'][direction]['min'];
+					coordinate[direction] = CONFIG['game']['border'][direction]['max'];
 				}
 			}
 			return coordinate;
