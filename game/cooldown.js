@@ -25,7 +25,7 @@ class Cooldown
 			reset: function reset()
 			{
 				this.time = CONFIG['game']['ship']['cooldown']['shoot_time'];
-				this.active = 0;
+				this.active = true;
 			},
 		};
 	}
