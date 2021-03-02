@@ -38,7 +38,7 @@ class Ship
 				return 0;
 			}
 		}
-		GLOBALS['screen'].draw_poly(this.poly, 'stroke', 'rgb('+this.color[0]+','+this.color[1]+','+this.color[2]+')');
+		GLOBALS['screen'].draw_poly(this.poly, 'rgb('+this.color[0]+','+this.color[1]+','+this.color[2]+')');
 	}
 
 	check_coordinate (coordinate)
