@@ -28,6 +28,7 @@ class Game
 	async loop ()
 	/* Main loop of the game */
 	{
+		GLOBALS['screen'].clear();
 		for (let key in CONFIG['game']['shortcut'])
 		{
 			if (!check_type(key, 'string', ['.']))
