@@ -94,7 +94,7 @@ function check_type(value, type = 'boolean', structure = [], notNan = false)
 				{
 					return false;
 				}
-				if (!check_type(value[i], type='array', structure[1], notNan))
+				if (!check_type(value[i], type='array', [structure[1]], notNan))
 				{
 					return false;
 				}
