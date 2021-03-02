@@ -172,16 +172,23 @@ async function include(src, strict=true)
 var LANG = {};
 async function init()
 {
-	await include('./resources/js/config.js');
-	await include('./resources/js/lang.js');
-	LANG = await load_lang();
-	GLOBALS['canvas'] = document.getElementById('game');
-	await include('./resources/js/screen.js');
-	await include('./resources/js/style.js');
-	await include('./game/main.js');
-	await load();
-	GLOBALS['game'] = new Game();
-	GLOBALS['game'].run();
+	try
+	{
+		await include('./resources/js/config.js');
+		await include('./resources/js/lang.js');
+		LANG = await load_lang();
+		GLOBALS['canvas'] = document.getElementById('game');
+		await include('./resources/js/screen.js');
+		await include('./resources/js/style.js');
+		await include('./game/main.js');
+		await load();
+		GLOBALS['game'] = new Game();
+		GLOBALS['game'].run();
+	}
+	catch (error)
+	{
+		console.log(error+' in :\n'+error.stack);
+	}
 };
 
 init();
