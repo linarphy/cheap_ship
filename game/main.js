@@ -25,7 +25,7 @@ class Game
 		this.loop();
 	}
 
-	loop ()
+	async loop ()
 	/* Main loop of the game */
 	{
 		if (GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['pause']]) // Pause the game when p is pressed
@@ -39,7 +39,7 @@ class Game
 		}
 
 		/* Level logic */
-		this.level.manage();
+		await this.level.manage();
 
 		/* Movement Logic */
 		let movement = [0, 0]

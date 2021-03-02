@@ -17,7 +17,7 @@ class Level
 		}
 	}
 
-	manage ()
+	async manage ()
 	{
 		if (this.game.enemies.length < 1)
 		{
