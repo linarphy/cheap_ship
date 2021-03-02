@@ -67,7 +67,7 @@ class Enemy
 	move ()
 	/* Moves the enemy */
 	{
-		if (this.step > this.pattern.length)
+		if (this.step > this.pattern.length - 1)
 		{
 			this.step = 0;
 		}
