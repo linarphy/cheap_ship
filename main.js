@@ -187,6 +187,7 @@ async function init()
 	}
 	catch (error)
 	{
+		console.trace();
 		console.log(error+' in :\n'+error.stack);
 	}
 };
