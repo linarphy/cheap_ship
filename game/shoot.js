@@ -51,7 +51,7 @@ class Shoot
 	check_collision()
 	/* Checks if the ship collide with this shoot */
 	{
-		if (GLOBALS['screen'].check_collision_polygon(this.game.ship.poly, this.poly))
+		if (GLOBALS['screen'].check_collision(this.game.ship.poly, this.poly))
 		{
 			this.game.ship.take_damage(CONFIG['game']['shoot']['damage']);
 			this.is_destroyed = true;

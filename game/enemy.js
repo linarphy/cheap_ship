@@ -72,14 +72,14 @@ class Enemy
 	{
 		for (let shoot of this.game.shoots)
 		{
-			if (GLOBALS['screen'].check_collision_polygon(shoot.poly, this.poly))
+			if (GLOBALS['screen'].check_collision(shoot.poly, this.poly))
 			{
 				shoot.is_destroyed = true;
 				this.take_damage(CONFIG['game']['shoot']['damage']);
 				return true;
 			}
 		}
-		if (GLOBALS['screen'].check_collision_polygon(this.game.ship.poly, this.poly))
+		if (GLOBALS['screen'].check_collision(this.game.ship.poly, this.poly))
 		{
 			this.take_damage(CONFIG['game']['collision_damage']);
 			this.game.ship.take_damage(CONFIG['game']['collision_damage']);
