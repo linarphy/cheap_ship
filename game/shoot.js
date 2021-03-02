@@ -2,6 +2,22 @@ class Shoot
 {
 	constructor (game, position, speed, poly)
 	{
+		if (!check_type(game, 'object'))
+		{
+			throw 'game has an unexpected type or value';
+		}
+		if (!check_type(position, 'array', [2], true))
+		{
+			throw 'position has an unexpected type or value';
+		}
+		if (!check_type(speed, 'array', [2], true))
+		{
+			throw 'speed has an unexpected type or value';
+		}
+		if (!check_type(poly, 'array', ['.', [2]], true))
+		{
+			throw 'poly has an unexpected type or value';
+		}
 		this.game = game;
 		this.position = position;
 		this.speed = speed;
@@ -18,6 +34,10 @@ class Shoot
 	check_coordinate (coordinate)
 	/* Checks if the shoot is drawable, destroy it if not */
 	{
+		if (!check_type(CONFIG['game']['border'], 'array', [2, [2, 2]], true))
+		{
+			throw 'game border has an unexpected type or value';
+		}
 		let directions=[0, 1];
 		for (let direction of directions)
 		{
@@ -35,7 +55,7 @@ class Shoot
 	move ()
 	/* Moves the shoot to its new position */
 	{
-		coordinate=[this.speed[0]+this.position[0], this.speed[1]+this.position[1]];
+		let coordinate=[this.speed[0]+this.position[0], this.speed[1]+this.position[1]];
 		this.check_coordinate(coordinate);
 		if (this.is_destroyed)
 		{

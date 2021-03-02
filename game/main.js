@@ -28,6 +28,13 @@ class Game
 	async loop ()
 	/* Main loop of the game */
 	{
+		for (let key of CONFIG['game']['shortcut'])
+		{
+			if (!check_type(key, 'string', ['.']))
+			{
+				throw 'error: some keys are not string as they must be';
+			}
+		}
 		if (GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['pause']]) // Pause the game when p is pressed
 		{
 			this.is_running = false;

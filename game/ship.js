@@ -2,6 +2,22 @@ class Ship
 {
 	constructor (game)
 	{
+		if (!check_type(game, 'object'))
+		{
+			throw 'unexpected type for game';
+		}
+		if (!check_type(CONFIG['game']['ship']['hp'], 'number',  [], true))
+		{
+			throw 'unexpected type of default ship hp';
+		}
+		if (!check_type(CONFIG['game']['ship']['speed'], 'array', [2], true))
+		{
+			throw 'unexpected type of default ship speed';
+		}
+		if (!check_type(CONFIG['game']['ship']['poly'], 'array', ['.', 2], true))
+		{
+			throw 'unexpected type of default poly ship';
+		}
 		this.hp = CONFIG['game']['ship']['hp'];
 		this.speed = CONFIG['game']['ship']['speed'];
 		this.poly = CONFIG['game']['ship']['poly'];
@@ -27,28 +43,46 @@ class Ship
 	check_coordinate (coordinate)
 	/* Check if the given coordinate is drawable and make it drawable if not */
 	{
-		let directions=[0, 1];
-		for (let direction of directions)
+		if (check_type(coordinate, 'array', [2], true))
 		{
-			if (coordinate[direction] < CONFIG['game']['border'][direction]['min'])
+			let directions=[0, 1];
+			if (!check_type(CONFIG['game']['border'], 'array', [2, [2, 2]], true))
 			{
-				coordinate[direction] = CONFIG['game']['border'][direction]['min'];
+				throw 'game border has an unexpected type or value';
 			}
-			else if (coordinate[direction] > CONFIG['game']['border'][direction]['max']+CONFIG['game']['ship'][direction])
+			for (let direction of directions)
 			{
-				coordinate[direction] = CONFIG['game']['border'][direction]['max']+CONFIG['game']['ship'][direction];
+				if (coordinate[direction] < CONFIG['game']['border'][direction]['min'])
+				{
+					coordinate[direction] = CONFIG['game']['border'][direction]['min'];
+				}
+				else if (coordinate[direction] > CONFIG['game']['border'][direction]['max']+CONFIG['game']['ship'][direction])
+				{
+					coordinate[direction] = CONFIG['game']['border'][direction]['max']+CONFIG['game']['ship'][direction];
+				}
 			}
+			return coordinate;
 		}
-		return coordinate;
+		else
+		{
+			throw 'coordinate has an unexpected type or value';
+		}
 	}
 
 	move (movement)
 	/* Moves the ship as the given movement */
 	{
-		let coordinate = [movement[0]+this.position[0], movement[1]+this.position[1]];
-		coordinate = this.check_coordinate(coordinate);
-		this.position = coordinate;
-		this.poly = GLOBALS['screen'].to_poly(this.coordinate, GLOBALS['screen'].to_vectors(this.poly));
+		if (check_type(movement, 'array', [2], true))
+		{
+			let coordinate = [movement[0]+this.position[0], movement[1]+this.position[1]];
+			coordinate = this.check_coordinate(coordinate);
+			this.position = coordinate;
+			this.poly = GLOBALS['screen'].to_poly(this.coordinate, GLOBALS['screen'].to_vectors(this.poly));
+		}
+		else
+		{
+			throw 'movement has an unexpected type or value';
+		}
 	}
 
 	shoot ()
@@ -61,14 +95,21 @@ class Ship
 	take_damage (damage)
 	/* Makes the ship take damage */
 	{
-		if (!this.cooldown.invincible.active)
+		if (check_type(damage, 'number'), [], true)
 		{
-			this.hp -= damage;
-			if (this.hp < 1)
+			if (!this.cooldown.invincible.active)
 			{
-				this.destroy();
+				this.hp -= damage;
+				if (this.hp < 1)
+				{
+					this.destroy();
+				}
+				this.cooldown.invincible.reset();
 			}
-			this.cooldown.invincible.reset();
+		}
+		else
+		{
+			throw 'damage has an unexpected type or value';
 		}
 	}
 

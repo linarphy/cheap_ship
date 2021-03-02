@@ -2,6 +2,14 @@ class Cooldown
 {
 	constructor (game)
 	{
+		if (!check_type(CONFIG['game']['ship']['cooldown']['invincible_time'], 'number', [], true))
+		{
+			throw 'default invincible cooldown time has an unexpected value or type';
+		}
+		if (!check_type(CONFIG['game']['ship']['cooldown']['shoot_time'], 'number', [], true))
+		{
+			throw 'default shoot cooldown time has an unexpected value or type';
+		}
 		this.invincible = {
 			active: false,
 			time: 0,
