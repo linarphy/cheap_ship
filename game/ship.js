@@ -100,7 +100,6 @@ class Ship
 		{
 			if (!this.cooldown.invincible.active)
 			{
-				this.color = CONFIG['game']['ship']['color_take_damage'];
 				this.hp -= damage;
 				if (this.hp < 1)
 				{
