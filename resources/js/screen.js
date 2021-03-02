@@ -8,9 +8,9 @@ GLOBALS['screen'] = {
 		let vectors = [];
 		for (let i = 0; i < polygon.length - 1; i++)
 		{
-			vectors.push(to_vector(polygon[i], polygon[i + 1]));
+			vectors.push(this.to_vector(polygon[i], polygon[i + 1]));
 		}
-		vectors.push(to_vector(polygon[polygon.length - 1], polygon[0]));
+		vectors.push(this.to_vector(polygon[polygon.length - 1], polygon[0]));
 		return vectors;
 	},
 	to_poly: function (start_position, vectors)
@@ -117,7 +117,7 @@ GLOBALS['screen'] = {
 		let indice = 0;
 		while (indice < polygon_2.length)
 		{
-			let reverse_vector_polygon_1 = transform_invert(to_vectors(polygon_1)),
+			let reverse_vector_polygon_1 = this.transform_invert(this.to_vectors(polygon_1)),
 				start_point = polygon_2[indice],
 				end_point = 0;
 			if (indice === polygon_2.length - 1)
@@ -128,7 +128,7 @@ GLOBALS['screen'] = {
 			{
 				end_point = polygon_2[indice + 1];
 			}
-			let vector_side = to_vector(start_point, end_point),
+			let vector_side = this.to_vector(start_point, end_point),
 				theta_min = Math.atan2(vector_side[1], vector_side[0]),
 				theta_max = theta_min + Math.PI;
 			if (theta_min < 0)
