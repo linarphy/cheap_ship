@@ -39,7 +39,6 @@ class Game
 		if (GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['pause']]) // Pause the game when p is pressed
 		{
 			console.log('a');
-		}
 			this.is_running = false;
 		}
 
