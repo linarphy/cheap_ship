@@ -8,7 +8,7 @@ class Level
 		this.launch();
 	}
 
-	launch ()
+	async launch ()
 	{
 		let level_data = await get_json(this.file, data => data);
 		for (let enemy of level_data['enemies'])
