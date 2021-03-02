@@ -39,9 +39,9 @@ class Level
 	{
 		if (this.game.enemies.length < 1 && this.ready)
 		{
-			if (this.id < CONFIG['game']['level'].length)
+			if (this.id < CONFIG['game']['level'].length - 1)
 			{
-				this.game.level = new Level(this.game, CONFIG['game']['level'][this.id + 1], this.id);
+				this.game.level = new Level(this.game, CONFIG['game']['level'][this.id + 1], this.id + 1);
 			}
 			else
 			{

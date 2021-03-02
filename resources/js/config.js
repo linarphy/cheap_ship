@@ -60,7 +60,7 @@ CONFIG.__get('game').__get('ship')['hp']=3;
 /* Base speed of the ship */
 CONFIG.__get('game').__get('ship')['speed']=[5, 5];
 /* Poly of the ship */
-CONFIG.__get('game').__get('ship')['poly']=[[25, 25], [50, 0], [25, 50], [0, 0]];
+CONFIG.__get('game').__get('ship')['poly']=[[25, 50], [0, 0], [25, 25], [50, 0]];
 /* [COOLDOWN] */
 /* Number of frame during ship invincibility */
 CONFIG.__get('game').__get('ship').__get('cooldown')['invincible_time']=30;
@@ -72,7 +72,7 @@ CONFIG.__get('game').__get('ship').__get('cooldown')['shoot_time']=30;
 /* Base speed of missile */
 CONFIG.__get('game').__get('shoot')['speed']=[5, 5];
 /* Base poly of missile */
-CONFIG.__get('game').__get('shoot')['poly']=[[0, 0], [50, 0], [50, 15], [0, 15]];
+CONFIG.__get('game').__get('shoot')['poly']=[[5, 0], [10, 0], [10, 25], [0, 25], [0, 0]];
 /* Base damage done by missile */
 CONFIG.__get('game').__get('shoot')['damage']=1;
 /* [/SHOOT] */
