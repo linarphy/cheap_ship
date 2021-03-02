@@ -116,7 +116,7 @@ class Game
 
 	create_shoot (position, speed, poly)
 	{
-		shoot = new Shoot(position, speed, poly);
+		shoot = new Shoot(this, position, speed, poly);
 		this.shoots.push(shoot);
 	}
 }

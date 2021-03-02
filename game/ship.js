@@ -85,7 +85,7 @@ class Ship
 	/* Makes the ship shoot */
 	{
 		this.cooldown.shoot.reset();
-		this.game.create_shoot(this.position, [0, CONFIG['game']['shoot']['speed']], CONFIG['game']['shoot']['poly']);
+		this.game.create_shoot(this.position, [0, CONFIG['game']['shoot']['speed'][0]], CONFIG['game']['shoot']['poly']);
 	}
 
 	take_damage (damage)
