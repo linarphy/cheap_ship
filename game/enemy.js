@@ -32,7 +32,7 @@ class Enemy
 		this.speed = speed;
 		this.hp = hp;
 		this.pattern = pattern;
-		this.poly = poly;
+		this.poly = GLOBALS['screen'].to_poly(this.position, GLOBALS['screen'].to_vectors(poly));
 	}
 
 	draw ()
