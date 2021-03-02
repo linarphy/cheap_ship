@@ -68,7 +68,7 @@ class Enemy
 	}
 
 	check_collision ()
-	/* Checks if this ennemy collide with a shoot or the ship */
+	/* Checks if this enemy collide with a shoot or the ship */
 	{
 		for (let shoot of this.game.shoots)
 		{
