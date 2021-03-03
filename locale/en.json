@@ -3,5 +3,9 @@
 		"page": {
 			"title": "Cheap Ship"
 		}
+	},
+	"game": {
+		"level": "Level",
+		"fps": "FPS"
 	}
 }

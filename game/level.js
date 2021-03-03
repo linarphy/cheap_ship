@@ -14,7 +14,7 @@ class Level
 		{
 			throw 'level id has an unexpected type or value';
 		}
-		document.getElementById('level').textContent = 'LEVEL: '+this.id;
+		document.getElementById('level').textContent = LANG['game']['level']+': '+this.id;
 		this.game = game;
 		this.file = file;
 		this.id = id;
