@@ -18,7 +18,7 @@ CONFIG.__get('user')['lang']='en';
 /* [/USER] */
 /* [GAME] */
 /* Capp FPS */
-CONFIG.__get('game')['max_fps']=60;
+CONFIG.__get('game')['max_fps']=100;
 /* Damage done when collision occurs */
 CONFIG.__get('game')['collision_damage']=2;
 /* [LEVEL] */
