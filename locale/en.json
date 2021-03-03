@@ -2,10 +2,10 @@
 	"lang": {
 		"page": {
 			"title": "Cheap Ship"
+		},
+		"game": {
+			"level": "Level",
+			"fps": "FPS"
 		}
 	},
-	"game": {
-		"level": "Level",
-		"fps": "FPS"
-	}
 }
