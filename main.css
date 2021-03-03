@@ -30,7 +30,13 @@ main
 main section
 {
 	border: solid 1px;
+	display: flex;
+	flex-display: column;
 	width: 200px;
+}
+main section p
+{
+	text-align: center;
 }
 #game
 {
