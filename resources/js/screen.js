@@ -175,6 +175,21 @@ GLOBALS['screen'] = {
 				throw 'unknown type';
 		}
 	},
+	write: function(text, position='middle', color='white', font='sans-serif', size=20, type='normal')
+	{
+		let ctx = GLOBALS['canvas'].getContext('2d');
+		ctx.fillStyle = color;
+		ctx.font = type+' '+size+' px '+font;
+		if (position === 'middle')
+		{
+			position = [GLOBALS['canvas'].width / 2 - (text.length / 2) * size, GLOBALS['canvas'].height / 2 + size / 2]
+		}
+		else
+		{
+			position = [position[0], GLOBALS['height']-position[1]];
+		}
+		ctx.fillText(text, position[0], position[1]);
+	},
 	clear: function ()
 	{
 		let ctx = GLOBALS['canvas'].getContext('2d');

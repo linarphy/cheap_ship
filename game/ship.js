@@ -117,7 +117,8 @@ class Ship
 	destroy ()
 	/* Destroys the ship */
 	{
-		console.log('boum');
+		GLOBALS['screen'].write(LANG['game']['loose']);
 		this.game.is_running = false;
+		this.game.is_ended = true;
 	}
 }

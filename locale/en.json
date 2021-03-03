@@ -5,7 +5,9 @@
 		},
 		"game": {
 			"level": "Level",
-			"fps": "FPS"
+			"fps": "FPS",
+			"win": "You Won!",
+			"loose": "Game Over"
 		}
 	}
 }

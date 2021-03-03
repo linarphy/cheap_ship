@@ -14,6 +14,7 @@ class Game
 		this.shoots = [];
 		this.enemies = [];
 		this.is_running = false;
+		this.is_ended = false;
 		this.ship = new Ship(this);
 		this.level = new Level(this);
 	}
@@ -40,7 +41,7 @@ class Game
 			this.is_running = false;
 		}
 
-		if (!this.is_running)
+		if (!this.is_running || this.is_ended)
 		{
 			return 0;
 		}

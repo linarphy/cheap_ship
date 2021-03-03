@@ -46,8 +46,9 @@ class Level
 			}
 			else
 			{
-				console.log('win');
+				GLOBALS['screen'].write(LANG['game']['win']);
 				this.game.is_running = false;
+				this.game.is_ended = true;
 			}
 		}
 	}
