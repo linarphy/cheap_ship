@@ -11,6 +11,7 @@ var GLOBALS = {
 	}
 };
 
+GLOBALS['time'] = Date.now();
 GLOBALS.__get('core')['scripts'] = ['main.js'];
 GLOBALS['keys_pressed'] = [];
 
