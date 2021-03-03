@@ -28,26 +28,27 @@ class Game
 	async loop ()
 	/* Main loop of the game */
 	{
-		let last_frame = Date.now().getTime() - GLOBALS['time'].getTime();
-		if (last_frame < (1/CONFIG['game']['max_fps'])*1000)
+		for (let key in CONFIG['game']['shortcut'])
 		{
-			GLOBALS['time'] = Date.now();
-			for (let key in CONFIG['game']['shortcut'])
+			if (!check_type(key, 'string', ['.']))
 			{
-				if (!check_type(key, 'string', ['.']))
-				{
-					throw 'error: some keys are not string as they must be';
-				}
+				throw 'error: some keys are not string as they must be';
 			}
-			if (GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['pause']]) // Pause the game when p is pressed
-			{
-				this.is_running = false;
-			}
+		}
+		if (GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['pause']]) // Pause the game when p is pressed
+		{
+			this.is_running = false;
+		}
 
-			if (!this.is_running)
-			{
-				return 0;
-			}
+		if (!this.is_running)
+		{
+			return 0;
+		}
+		let last_frame = Date.now() - GLOBALS['time'];
+		if (last_frame > (1/CONFIG['game']['max_fps'])*1000)
+		{
+			document.getElementById('fps').textContent = round(1/(last_frame*1000));
+			GLOBALS['time'] = Date.now();
 			GLOBALS['screen'].clear();
 
 			/* Level logic */
@@ -112,10 +113,6 @@ class Game
 				shoot.draw();
 			}
 			this.ship.draw();
-		}
-		else
-		{
-			console.log('you\'re to quick');
 		}
 
 		window.requestAnimationFrame(() => {
