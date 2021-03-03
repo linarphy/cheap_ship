@@ -175,14 +175,14 @@ GLOBALS['screen'] = {
 				throw 'unknown type';
 		}
 	},
-	write: function(text, position='middle', color='white', font='sans-serif', size=60, type='normal')
+	write: function(text, position='middle', color='white', font='sans-serif', size=50, type='normal')
 	{
 		let ctx = GLOBALS['canvas'].getContext('2d');
 		ctx.fillStyle = color;
-		ctx.font = type+' '+size+' px '+font;
+		ctx.font = type+' '+size+'px '+font;
 		if (position === 'middle')
 		{
-			position = [GLOBALS['canvas'].width / 2 - (text.length / 2) * size, GLOBALS['canvas'].height / 2 + size / 2]
+			position = [GLOBALS['canvas'].width / 2 - (text.length / 2) * size / 2, GLOBALS['canvas'].height / 2 + size / 2]
 		}
 		else
 		{
