@@ -25,6 +25,10 @@ main
 {
 	border: solid 1px;
 }
+main section
+{
+	width: 200px;
+}
 #game
 {
 	position: relative;
