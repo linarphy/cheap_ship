@@ -17,6 +17,13 @@ GLOBALS['keys_pressed'] = [];
 
 document.addEventListener('keydown', (e) => {
 	GLOBALS.__get('keys_pressed')[e.key]=true;
+	if (GLOBALS['game'] !== undefined)
+	{
+		if (!GLOBALS['game'].is_ended && GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['unpause']])
+		{
+			GLOBALS['game'].run();
+		}
+	}
 });
 document.addEventListener('keyup', (e) => {
 	delete GLOBALS.__get('keys_pressed')[e.key];

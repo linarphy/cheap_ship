@@ -27,6 +27,8 @@ CONFIG.__get('game')['level']=['./level/1.json'];
 /* [SHORTCUT] */
 /* Pause the game */
 CONFIG.__get('game').__get('shortcut')['pause']='p';
+/* Unpause the game */
+CONFIG.__get('game').__get('shortcut')['unpause']='p';
 /* Go to left */
 CONFIG.__get('game').__get('shortcut')['left']='ArrowLeft';
 /* Go to right */
