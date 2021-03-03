@@ -1,4 +1,4 @@
-body, header, main, footer
+body, header, footer
 {
 	display: flex;
 	flex-direction: row;
@@ -7,6 +7,7 @@ body, header, main, footer
 }
 body
 {
+	overflow-x: hidden;
 	height: 100%;
 }
 #main
@@ -23,10 +24,12 @@ header
 }
 main
 {
-	border: solid 1px;
+	display: flex;
+	flex-direction: row;
 }
 main section
 {
+	border: solid 1px;
 	width: 200px;
 }
 #game
