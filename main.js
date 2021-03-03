@@ -19,7 +19,7 @@ document.addEventListener('keydown', (e) => {
 	GLOBALS.__get('keys_pressed')[e.key]=true;
 	if (GLOBALS['game'] !== undefined)
 	{
-		if (!GLOBALS['game'].is_ended && GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['unpause']])
+		if (!GLOBALS['game'].is_ended && e.key === CONFIG['game']['shortcut']['unpause'])
 		{
 			GLOBALS['game'].run();
 		}
