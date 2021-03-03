@@ -47,7 +47,7 @@ class Game
 		let last_frame = Date.now() - GLOBALS['time'];
 		if (last_frame > (1/CONFIG['game']['max_fps'])*1000)
 		{
-			document.getElementById('fps').textContent = Math.round(1/(last_frame*1000));
+			document.getElementById('fps').textContent = 'FPS: '+Math.round(1000/last_frame);
 			GLOBALS['time'] = Date.now();
 			GLOBALS['screen'].clear();
 
