@@ -1,0 +1,12 @@
+{
+	"ship": {
+		"main": "rgb(0, 0, 255)",
+		"invincible": "rgb(255, 0, 0)"
+	},
+	"enemy": {
+		"main": "rgb(255, 255, 255)"
+	},
+	"shoot": {
+		"main": "rgb(255, 255, 255)"
+	}
+}

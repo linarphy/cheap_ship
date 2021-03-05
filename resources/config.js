@@ -12,18 +12,35 @@ var CONFIG={
 };
 
 CONFIG['lang_available']=['en'];
+/* [COLOR-SCHEMES] */
+CONFIG.__get('color-schemes'])['available']=['light', 'dark'];
+/* [/COLOR-SCHEMES] */
 /* [USER] */
 /* User langage */
 CONFIG.__get('user')['lang']='en';
 /* [/USER] */
 /* [GAME] */
+/* Color-schemes used */
+CONFIG.__get('game')['color-scheme']='light';
+for (let color-scheme of CONFIG['color-schemes']['available'])
+{
+	if (window.matchMedia("(prefers-color-scheme: "+color-scheme+")").matches) // if it is the current color-scheme, we change
+	{
+		CONFIG.__get('game')['color-scheme'] = color-scheme;
+	}
+	window.matchMedia("(prefers-color-scheme: "+color-scheme+")").addListener(function () { // if color-scheme change, we load it
+		CONFIG.__get('game')['color-scheme'] = color-scheme;
+		GLOBALS['color'] = get_json('./colors-schemes/'+color-scheme+'.json', colors => colors);
+	});
+}
+GLOBALS['color'] = get_json('./colors-schemes/'+CONFIG['game']['colors-scheme']+'.json', colors => colors);
 /* Capp FPS */
 CONFIG.__get('game')['max_fps']=100;
 /* Damage done when collision occurs */
 CONFIG.__get('game')['collision_damage']=2;
 /* [LEVEL] */
-/* level 1 */
 CONFIG.__get('game')['level']=['./level/1.json'];
+/* [/LEVEL] */
 /* [SHORTCUT] */
 /* Pause the game */
 CONFIG.__get('game').__get('shortcut')['pause']='p';

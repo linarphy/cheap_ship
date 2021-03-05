@@ -19,7 +19,7 @@ document.addEventListener('keydown', (e) => {
 	GLOBALS.__get('keys_pressed')[e.key]=true;
 	if (GLOBALS['game'] !== undefined)
 	{
-		if (!GLOBALS['game'].is_ended && e.key === CONFIG['game']['shortcut']['unpause'])
+		if (!GLOBALS['game'].is_ended && e.key === CONFIG['game']['shortcut']['unpause'] && !GLOBALS['game'].is_running)
 		{
 			GLOBALS['game'].run();
 		}
@@ -182,12 +182,12 @@ async function init()
 {
 	try
 	{
-		await include('./resources/js/config.js');
-		await include('./resources/js/lang.js');
+		await include('./resources/config.js');
+		await include('./resources/lang.js');
 		LANG = await load_lang();
 		GLOBALS['canvas'] = document.getElementById('game');
-		await include('./resources/js/screen.js');
-		await include('./resources/js/style.js');
+		await include('./resources/screen.js');
+		await include('./resources/style.js');
 		await include('./game/main.js');
 		await load();
 		GLOBALS['game'] = new Game();
