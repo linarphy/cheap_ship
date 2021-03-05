@@ -22,15 +22,15 @@ CONFIG.__get('user')['lang']='en';
 /* [GAME] */
 /* Color-schemes used */
 CONFIG.__get('game')['color-scheme']='light';
-for (let color-scheme of CONFIG['color-schemes']['available'])
+for (let color_scheme of CONFIG['color-schemes']['available'])
 {
-	if (window.matchMedia("(prefers-color-scheme: "+color-scheme+")").matches) // if it is the current color-scheme, we change
+	if (window.matchMedia("(prefers-color-scheme: "+color_scheme+")").matches) // if it is the current color-scheme, we change
 	{
-		CONFIG.__get('game')['color-scheme'] = color-scheme;
+		CONFIG.__get('game')['color-scheme'] = color_scheme;
 	}
-	window.matchMedia("(prefers-color-scheme: "+color-scheme+")").addListener(function () { // if color-scheme change, we load it
-		CONFIG.__get('game')['color-scheme'] = color-scheme;
-		GLOBALS['color'] = get_json('./colors-schemes/'+color-scheme+'.json', colors => colors);
+	window.matchMedia("(prefers-color-scheme: "+color_scheme+")").addListener(function () { // if color-scheme change, we load it
+		CONFIG.__get('game')['color-scheme'] = color_scheme;
+		GLOBALS['color'] = get_json('./colors-schemes/'+color_scheme+'.json', colors => colors);
 	});
 }
 GLOBALS['color'] = get_json('./colors-schemes/'+CONFIG['game']['colors-scheme']+'.json', colors => colors);
