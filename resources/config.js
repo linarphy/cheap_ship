@@ -13,7 +13,7 @@ var CONFIG={
 
 CONFIG['lang_available']=['en'];
 /* [COLOR-SCHEMES] */
-CONFIG.__get('color-schemes'])['available']=['light', 'dark'];
+CONFIG.__get('color-schemes')['available']=['light', 'dark'];
 /* [/COLOR-SCHEMES] */
 /* [USER] */
 /* User langage */
