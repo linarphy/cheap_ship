@@ -1,8 +1,3 @@
-async function get_json (path, callback)
-{
-	return callback(await fetch(path).then(response => response.json()));
-}
-
 async function load_lang ()
 {
 	if (CONFIG['lang_available'].indexOf(CONFIG['user']['lang']) !== -1) // The langage is available

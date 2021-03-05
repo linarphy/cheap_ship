@@ -29,6 +29,11 @@ document.addEventListener('keyup', (e) => {
 	delete GLOBALS.__get('keys_pressed')[e.key];
 });
 
+async function get_json (path, callback)
+{
+	return callback(await fetch(path).then(response => response.json()));
+}
+
 function check_type(value, type = 'boolean', structure = [], notNan = false)
 {
 	/* Check type of args */
