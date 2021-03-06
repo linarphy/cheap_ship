@@ -164,11 +164,11 @@ GLOBALS['screen'] = {
 		switch (type)
 		{
 			case 'stroke':
-				ctx.strokeStyle = "rgb("color[0]+", "+color[1]+", "+color[2]+")";
+				ctx.strokeStyle = "rgb("+color[0]+", "+color[1]+", "+color[2]+")";
 				ctx.stroke();
 				break;
 			case 'fill':
-				ctx.fillStyle = "rgb("color[0]+", "+color[1]+", "+color[2]+")";
+				ctx.fillStyle = "rgb("+color[0]+", "+color[1]+", "+color[2]+")";
 				ctx.fill();
 				break;
 			default:
