@@ -41,7 +41,7 @@ class Cooldown
 			if (this.invincible.time < 0)
 			{
 				this.invincible.active = false;
-				this.game.ship.color=GAMES['color']['ship']['main'];
+				this.game.ship.color=CONFIG['color']['ship']['main'];
 			}
 			else
 			{
