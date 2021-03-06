@@ -181,13 +181,11 @@ GLOBALS['screen'] = {
 		ctx.fillStyle = "rgb("+color[0]+", "+color[1]+", "+color[2]+")";
 		if (size === 'auto')
 		{
-			if (text.length/(CONFIG['game']['border'][0]['max'] - CONFIG['game']['border'][0]['max']) > CONFIG['game']['string']['size_max'])
+			size = text.length/(CONFIG['game']['border'][0]['max'] - CONFIG['game']['border'][0]['max']);
+			console.log(size);
+			if (size > CONFIG['game']['string']['size_max'])
 			{
 				size = CONFIG['game']['string']['size_max'];
-			}
-			else
-			{
-				size = text.length/(CONFIG['game']['border'][0]['max'] - CONFIG['game']['border'][0]['max']);
 			}
 		}
 		ctx.font = type+' '+size+'px '+font;

@@ -11,7 +11,7 @@ var CONFIG={
 	}
 };
 
-CONFIG['lang_available']=['en'];
+CONFIG['lang_available']=['en', 'fr'];
 /* [COLOR-SCHEMES] */
 CONFIG.__get('color-schemes')['available']=['light', 'dark'];
 /* [/COLOR-SCHEMES] */
