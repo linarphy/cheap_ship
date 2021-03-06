@@ -149,7 +149,7 @@ GLOBALS['screen'] = {
 		}
 		return false;
 	},
-	draw_poly: function(polygon, color='white', type='stroke')
+	draw_poly: function(polygon, color=[255, 255, 255], type='stroke')
 	{
 		let ctx = GLOBALS['canvas'].getContext('2d');
 		ctx.beginPath();
@@ -164,11 +164,11 @@ GLOBALS['screen'] = {
 		switch (type)
 		{
 			case 'stroke':
-				ctx.strokeStyle = color;
+				ctx.strokeStyle = "rgb("color[0]+", "+color[1]+", "+color[2]+")";
 				ctx.stroke();
 				break;
 			case 'fill':
-				ctx.fillStyle = color;
+				ctx.fillStyle = "rgb("color[0]+", "+color[1]+", "+color[2]+")";
 				ctx.fill();
 				break;
 			default:

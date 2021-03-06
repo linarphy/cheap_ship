@@ -18,7 +18,7 @@ class Shoot
 		{
 			throw 'poly has an unexpected type or value';
 		}
-		if (!check_type(GLOBALS['color']['shoot']['main'], 'string'))
+		if (!check_type(GLOBALS['color']['shoot']['main'], 'array', [3], true))
 		{
 			throw 'color has an unexpected type or value';
 		}
