@@ -46,7 +46,7 @@ class Level
 			}
 			else
 			{
-				GLOBALS['screen'].write(LANG['game']['win']);
+				GLOBALS['screen'].write(LANG['game']['win'], "middle", GLOBALS['color']['string']['win']);
 				this.game.is_running = false;
 				this.game.is_ended = true;
 			}

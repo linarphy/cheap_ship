@@ -175,10 +175,10 @@ GLOBALS['screen'] = {
 				throw 'unknown type';
 		}
 	},
-	write: function(text, position='middle', color='white', font='sans-serif', size=50, type='normal')
+	write: function(text, position='middle', color=[255, 255, 255], font='sans-serif', size=50, type='normal')
 	{
 		let ctx = GLOBALS['canvas'].getContext('2d');
-		ctx.fillStyle = color;
+		ctx.fillStyle = "rgb("+color[0]+", "+color[1]+", "+color[2]+")";
 		ctx.font = type+' '+size+'px '+font;
 		if (position === 'middle')
 		{
