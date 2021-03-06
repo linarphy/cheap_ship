@@ -20,6 +20,7 @@ class Shoot
 		}
 		if (!check_type(GLOBALS['color']['shoot']['main'], 'array', [3], true))
 		{
+			console.log(GLOBALS['color']['shoot']['main'])
 			throw 'color has an unexpected type or value';
 		}
 		this.game = game;

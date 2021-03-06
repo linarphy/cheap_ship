@@ -28,6 +28,7 @@ class Enemy
 		}
 		if (!check_type(GLOBALS['color']['enemy']['main'], 'array', [3], true))
 		{
+			console.log(GLOBALS['color']['enemy']['main'])
 			throw 'color has an unexpected type or value';
 		}
 		this.step = 0;
