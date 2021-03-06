@@ -75,6 +75,9 @@ CONFIG.__get('game').__get('border').__get(1)['min']=0;
 CONFIG.__get('game').__get('border').__get(1)['max']=500;
 /* [/1] */
 /* [/BORDER] */
+/* [STRING] */
+CONFIG.__get('game').__get('string')['size_max']=50;
+/* [/STRING] */
 /* [SHIP] */
 /* Color of the ship when invincible */
 CONFIG.__get('game').__get('ship')['color_take_damage']=[255, 0, 0];

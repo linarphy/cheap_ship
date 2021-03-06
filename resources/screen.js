@@ -175,10 +175,21 @@ GLOBALS['screen'] = {
 				throw 'unknown type';
 		}
 	},
-	write: function(text, position='middle', color=[255, 255, 255], font='sans-serif', size=50, type='normal')
+	write: function(text, position='middle', color=[255, 255, 255], font='sans-serif', size='auto', type='normal')
 	{
 		let ctx = GLOBALS['canvas'].getContext('2d');
 		ctx.fillStyle = "rgb("+color[0]+", "+color[1]+", "+color[2]+")";
+		if (size === 'auto')
+		{
+			if (text.length/(CONFIG['game']['border'][0]['max'] - CONFIG['game']['border'][0]['max']) > CONFIG['game']['string']['size_max'])
+			{
+				size = CONFIG['game']['string']['size_max'];
+			}
+			else
+			{
+				size = text.length/(CONFIG['game']['border'][0]['max'] - CONFIG['game']['border'][0]['max']);
+			}
+		}
 		ctx.font = type+' '+size+'px '+font;
 		if (position === 'middle')
 		{
