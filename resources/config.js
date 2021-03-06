@@ -20,6 +20,10 @@ CONFIG.__get('color-schemes')['available']=['light', 'dark'];
 CONFIG.__get('user')['lang']='en';
 /* [/USER] */
 /* [GAME] */
+async function load_color()
+{
+	GLOBALS['color'] = await get_json('./color-schemes/'+CONFIG['game']['color-scheme']+'.json', colors => colors);
+}
 /* Color-schemes used */
 CONFIG.__get('game')['color-scheme']='light';
 for (let color_scheme of CONFIG['color-schemes']['available'])
@@ -30,10 +34,10 @@ for (let color_scheme of CONFIG['color-schemes']['available'])
 	}
 	window.matchMedia("(prefers-color-scheme: "+color_scheme+")").addListener(function () { // if color-scheme change, we load it
 		CONFIG.__get('game')['color-scheme'] = color_scheme;
-		GLOBALS['color'] = get_json('./color-schemes/'+color_scheme+'.json', colors => colors);
+		load_color();
 	});
 }
-GLOBALS['color'] = get_json('./color-schemes/'+CONFIG['game']['color-scheme']+'.json', colors => colors);
+load_color();
 /* Capp FPS */
 CONFIG.__get('game')['max_fps']=100;
 /* Damage done when collision occurs */
