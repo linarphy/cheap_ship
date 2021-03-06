@@ -30,10 +30,10 @@ for (let color_scheme of CONFIG['color-schemes']['available'])
 	}
 	window.matchMedia("(prefers-color-scheme: "+color_scheme+")").addListener(function () { // if color-scheme change, we load it
 		CONFIG.__get('game')['color-scheme'] = color_scheme;
-		GLOBALS['color'] = get_json('./colors-schemes/'+color_scheme+'.json', colors => colors);
+		GLOBALS['color'] = get_json('./color-schemes/'+color_scheme+'.json', colors => colors);
 	});
 }
-GLOBALS['color'] = get_json('./colors-schemes/'+CONFIG['game']['color-scheme']+'.json', colors => colors);
+GLOBALS['color'] = get_json('./color-schemes/'+CONFIG['game']['color-scheme']+'.json', colors => colors);
 /* Capp FPS */
 CONFIG.__get('game')['max_fps']=100;
 /* Damage done when collision occurs */
