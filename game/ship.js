@@ -18,7 +18,7 @@ class Ship
 		{
 			throw 'unexpected type of default poly ship';
 		}
-		if (!check_type(CONFIG['game']['ship']['color'], 'array', [3], true))
+		if (!check_type(GLOBALS['color']['ship']['main'], 'array', [3], true))
 		{
 			throw 'unexpected type of default color ship';
 		}
@@ -27,7 +27,7 @@ class Ship
 		this.position = [0, 0];
 		this.poly = GLOBALS['screen'].to_poly(this.position, GLOBALS['screen'].to_vectors(CONFIG['game']['ship']['poly']));
 		this.cooldown = new Cooldown(game);
-		this.color = CONFIG['game']['ship']['color'];
+		this.color = GLOBALS['color']['ship']['main'];
 		this.game = game;
 		this.draw();
 	}

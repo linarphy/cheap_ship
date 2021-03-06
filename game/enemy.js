@@ -26,6 +26,10 @@ class Enemy
 		{
 			throw 'poly has an unexpected type or value';
 		}
+		if (!check_type(GLOBALS['color']['enemy']['main'], 'string'))
+		{
+			throw 'color has an unexpected type or value';
+		}
 		this.step = 0;
 		this.game = game;
 		this.position = position;
@@ -33,13 +37,14 @@ class Enemy
 		this.hp = hp;
 		this.pattern = pattern;
 		this.poly = GLOBALS['screen'].to_poly(this.position, GLOBALS['screen'].to_vectors(poly));
+		this.color = GLOBALS['color']['enemy']['main'];
 		this.draw();
 	}
 
 	draw ()
 	/* Draw the enemy in the present position */
 	{
-		GLOBALS['screen'].draw_poly(this.poly);
+		GLOBALS['screen'].draw_poly(this.poly, this.color);
 	}
 
 	check_coordinate (coordinate)

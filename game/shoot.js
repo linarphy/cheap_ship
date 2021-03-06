@@ -18,10 +18,15 @@ class Shoot
 		{
 			throw 'poly has an unexpected type or value';
 		}
+		if (!check_type(GLOBALS['color']['shoot']['main'], 'string'))
+		{
+			throw 'color has an unexpected type or value';
+		}
 		this.game = game;
 		this.position = position;
 		this.speed = speed;
 		this.poly = GLOBALS['screen'].to_poly(this.position, GLOBALS['screen'].to_vectors(poly));
+		this.color = GLOBALS['color']['shoot']['main'];
 		this.is_destroyed = false;
 		this.draw();
 	}
@@ -29,7 +34,7 @@ class Shoot
 	draw ()
 	/* Draw the shoot */
 	{
-		GLOBALS['screen'].draw_poly(this.poly);
+		GLOBALS['screen'].draw_poly(this.poly, this.color);
 	}
 
 	check_coordinate (coordinate)
