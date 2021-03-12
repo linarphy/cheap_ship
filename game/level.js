@@ -31,6 +31,7 @@ class Level
 		}
 		for (let enemy of level_data['enemies'])
 		{
+			console.log(enemy);
 			this.game.enemies.push(new Enemy(this.game, enemy['position'], enemy['speed'], enemy['hp'], enemy['pattern'], enemy['poly']));
 		}
 		this.ready = true;
