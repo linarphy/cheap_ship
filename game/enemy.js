@@ -4,27 +4,27 @@ class Enemy
 	{
 		if (!check_type(game, 'object'))
 		{
-			throw 'game has an unexpected type or value';
+			throw LANG['error']['game']['enemy']['game_type'];
 		}
 		if (!check_type(position, 'array', [2], true))
 		{
-			throw 'position has an unexpected type or value';
+			throw LANG['error']['game']['enemy']['position_type'];
 		}
 		if (!check_type(speed, 'array', [2], true))
 		{
-			throw 'speed has an unexpected type or value';
+			throw LANG['error']['game']['enemy']['speed_type'];
 		}
 		if (!check_type(hp, 'number', [], true))
 		{
-			throw 'hp has an unexpected type or value';
+			throw LANG['error']['game']['enemy']['hp_type'];
 		}
 		if (!check_type(pattern, 'array', ['.', 2], true))
 		{
-			throw 'pattern has an unexpected type or value';
+			throw LANG['error']['game']['enemy']['pattern_type'];
 		}
 		if (!check_type(poly, 'array', ['.', 2], true))
 		{
-			throw 'poly has an unexpected type or value';
+			throw LANG['error']['game']['enemy']'poly_type'];
 		}
 		this.step = 0;
 		this.game = game;
@@ -47,7 +47,7 @@ class Enemy
 	{
 		if (!check_type(coordinate, 'array', [2], true))
 		{
-			throw 'coordinate has an unexpected type or value';
+			throw LANG['error']['game']['enemy']['check_coordinate']['coordinate_type'];
 		}
 		let directions = [0, 1];
 		for (let direction of directions)
@@ -86,6 +86,10 @@ class Enemy
 
 	take_damage (damage)
 	{
+		if (!check_type(damage, 'number'), [], true)
+		{
+			throw LANG['error']['game']['enemy']['take_damage']['damage_type'];
+		}
 		this.hp -= damage;
 		if (this.hp < 1)
 		{

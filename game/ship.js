@@ -4,23 +4,23 @@ class Ship
 	{
 		if (!check_type(game, 'object'))
 		{
-			throw 'unexpected type for game';
+			throw LANG['error']['game']['ship']['game_type'];
 		}
 		if (!check_type(CONFIG['game']['ship']['hp'], 'number',  [], true))
 		{
-			throw 'unexpected type of default ship hp';
+			throw LANG['error']['game']['ship']['hp_type'];
 		}
 		if (!check_type(CONFIG['game']['ship']['speed'], 'array', [2], true))
 		{
-			throw 'unexpected type of default ship speed';
+			throw LANG['error']['game']['ship']['speed_type'];
 		}
 		if (!check_type(CONFIG['game']['ship']['poly'], 'array', ['.', 2], true))
 		{
-			throw 'unexpected type of default poly ship';
+			throw LANG['error']['game']['ship']['poly_type'];
 		}
 		if (!check_type(CONFIG['game']['ship']['color'], 'array', [3], true))
 		{
-			throw 'unexpected type of default color ship';
+			throw LANG['error']['game']['ship']['color_type'];
 		}
 		this.hp = CONFIG['game']['ship']['hp'];
 		this.speed = CONFIG['game']['ship']['speed'];
@@ -66,7 +66,7 @@ class Ship
 		}
 		else
 		{
-			throw 'coordinate has an unexpected type or value';
+			throw LANG['error']['game']['ship']['check_coordinate']['coordinate_type'];
 		}
 	}
 
@@ -82,7 +82,7 @@ class Ship
 		}
 		else
 		{
-			throw 'movement has an unexpected type or value';
+			throw LANG['error']['game']['ship']['move']['movement_type'];
 		}
 	}
 
@@ -110,7 +110,7 @@ class Ship
 		}
 		else
 		{
-			throw 'damage has an unexpected type or value';
+			throw LANG['error']['game']['ship']['take_damage']['damage_type'];
 		}
 	}
 

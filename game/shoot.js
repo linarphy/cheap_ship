@@ -4,19 +4,19 @@ class Shoot
 	{
 		if (!check_type(game, 'object'))
 		{
-			throw 'game has an unexpected type or value';
+			throw LANG['error']['game']['shoot']['game_type'];
 		}
 		if (!check_type(position, 'array', [2], true))
 		{
-			throw 'position has an unexpected type or value';
+			throw LANG['error']['game']['shoot']['position_type'];
 		}
 		if (!check_type(speed, 'array', [2], true))
 		{
-			throw 'speed has an unexpected type or value';
+			throw LANG['error']['game']['shoot']['speed_type'];
 		}
 		if (!check_type(poly, 'array', ['.', 2], true))
 		{
-			throw 'poly has an unexpected type or value';
+			throw LANG['error']['game']['shoot']['poly_type'];
 		}
 		this.game = game;
 		this.position = position;
@@ -37,7 +37,7 @@ class Shoot
 	{
 		if (!check_type(coordinate, 'array', [2], true))
 		{
-			throw 'coordinate has an unexpected type or value';
+			throw LANG['error']['game']['shoot']['check_coordinate']['coordinate_type'];
 		}
 		let directions=[0, 1];
 		for (let direction of directions)
@@ -52,7 +52,7 @@ class Shoot
 			}
 		}
 		return coordinate;
-	}
+	}'coordinate has an unexpected type or value';
 
 	move ()
 	/* Moves the shoot to its new position */

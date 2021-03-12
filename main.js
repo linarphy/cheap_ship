@@ -39,15 +39,15 @@ function check_type(value, type = 'boolean', structure = [], notNan = false)
 	/* Check type of args */
 	if (!Object.prototype.toString.call(type) === '[object String]')
 	{
-		throw 'type is not a string';
+		throw LANG['error']['check_type']['type_type'];
 	}
 	if (!Object.prototype.toString.call(structure) === '[object Array]')
 	{
-		throw 'structure is not an array';
+		throw LANG['error']['check_type']['structure_type'];
 	}
 	if (!Object.prototype.toString.call(notNan) === '[object Boolean]')
 	{
-		throw 'notNan is not a boolean';
+		throw LANG['error']['check_type']['notNan_type'];
 	}
 
 
@@ -133,54 +133,50 @@ function check_type(value, type = 'boolean', structure = [], notNan = false)
 
 async function include(src, strict=true)
 {
-	try
+	if (GLOBALS['core']['scripts'].indexOf(src)===-1) // The file is not already loaded
 	{
-		if (GLOBALS['core']['scripts'].indexOf(src)===-1) // The file is not already loaded
+		if (typeof(src) !== 'string')
 		{
-			// Construction of the script element
-			var script = document.createElement('script');
-			script.setAttribute('type', 'text/javascript');
-			script.setAttribute('src', src);
-
-			GLOBALS['core']['scripts'].push(src); // The script is now considered as loaded
-
-			document.getElementsByTagName('head')[0].appendChild(script); // The script is now added to the HTML
-
-			let script_loaded = new Promise(function(resolve, reject)
-				{
-					if (script !== undefined) // no issue
-					{
-						script.addEventListener('load', () => { // Wait the file is loaded
-							resolve(0);
-						});
-					}
-					else // error
-					{
-						reject('Cannot load this script');
-					}
-				});
-			return script_loaded.then(function(value)
-				{
-					return value;
-				}, function(error)
-				{
-					throw error;
-				});
+			throw src+LANG['error']['include']['type'];
 		}
-		else
-		{
-			if (strict)
+		// Construction of the script element
+		var script = document.createElement('script');
+		script.setAttribute('type', 'text/javascript');
+		script.setAttribute('src', src);
+
+		GLOBALS['core']['scripts'].push(src); // The script is now considered as loaded
+
+		document.getElementsByTagName('head')[0].appendChild(script); // The script is now added to the HTML
+
+		let script_loaded = new Promise(function(resolve, reject)
 			{
-				throw 'the file seems to be already loaded';
-			}
+				if (script !== undefined) // no issue
+				{
+					script.addEventListener('load', () => { // Wait the file is loaded
+						resolve(0);
+					});
+				}
+				else // error
+				{
+					reject(LANG['error']['include']['load']+src);
+				}
+			});
+		return script_loaded.then(function(value)
+			{
+				return value;
+			}, function(error)
+			{
+				throw error;
+			});
+	}
+	else
+	{
+		if (strict)
+		{
+			throw src+LANG['error']['include']['strict'];
 		}
 	}
-	catch (error)
-	{
-		console.log(error);
-		return -1;
-	}
-};
+}
 
 var LANG = {};
 async function init()
@@ -200,7 +196,6 @@ async function init()
 	}
 	catch (error)
 	{
-		console.trace();
 		console.log(error+' in :\n'+error.stack);
 	}
 };

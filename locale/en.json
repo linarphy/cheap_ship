@@ -8,6 +8,71 @@
 			"fps": "FPS",
 			"win": "You Won!",
 			"loose": "Game Over"
+		},
+		"error": {
+			"check_type": {
+				"type_type": "the type of the type argument of check_type must be a strig which contains the type of the value to check",
+				"structure_type": "the type of the structure argument of check_type must be an array which describe the structure of the value if it is an array",
+				"notNan_type": "the type of the notNan argument of check_type must be a boolean which is used to detect if element of the value (or value itself) is NaN"
+			},
+			"include": {
+				"type": " is not a string, it must be the path of the file to include",
+				"load": "Cannot load the script ",
+				"strict": " cannot be included because it is already loaded"
+			},
+			"game": {
+				"loop": {
+					"keys": "Cannot handle these keypresses"
+				},
+				"cooldown": {
+					"invincible_time_type": "Invincible cooldown time must be a correct number",
+					"shoot_time_type": "Shoot cooldown time must be a correct number"
+				},
+				"enemy": {
+					"game_type": "Enemy must be in a correct game to exist",
+					"position_type": "Enemy must be in a correct and well defined position to exist",
+					"speed_type": "Enemy speed must be correct and well defined",
+					"hp_type": "Enemy HP must be a valid number",
+					"pattern_type": "Enemy pattern not well defined",
+					"poly_type": "Enemy shape (polygon) is not valid",
+					"check_coordinate": {
+						"coordinate_type": "Cannot check if these coordinates are drawable because coordinates aren't well defined"
+					},
+					"take_damage": {
+						"damage_type": "An ennemy cannot take non numeric damage"
+					}
+				},
+				"level": {
+					"game_type": "Level must be in a correct game to exist",
+					"file_type": "The file level must be a path to a level file",
+					"id_type": "Id level must be a number"
+				},
+				"ship": {
+					"game_type": "Ship must be in a correct game to exist",
+					"hp_type": "Ship HP must be a valid number",
+					"speed_type": "Ship must have a correct speed",
+					"poly_type": "Ship must have a correct shape (polygon)",
+					"color_type": "The color of the ship must be an array [r,g,b]",
+					"check_coordinate": {
+						"coordinate_type": "Cannot check if these coordinates are drawable because coordinates aren't well defined"
+					},
+					"move": {
+						"movement_type": "The movement of the ship must be composed of an array with x position and a y one"
+					},
+					"take_damage": {
+						"damage_type": "The ship cannot take non numeric damage"
+					}
+				},
+				"shoot": {
+					"game_type": "Shoot must be in a correct game to exist",
+					"position_type": "Shoot must have a correct position",
+					"speed_type": "Shoot must have a correct speed",
+					"poly_type": "The shape (polygon) of the shoot is not well defined",
+					"check_coordinate": {
+						"coordinate_type": "Cannot check if these coordinates are drawable because coordinate aren't well defined"
+					}
+				}
+			}
 		}
 	}
 }

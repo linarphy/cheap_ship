@@ -33,7 +33,7 @@ class Game
 		{
 			if (!check_type(key, 'string', ['.']))
 			{
-				throw 'error: some keys are not string as they must be';
+				throw LANG['error']['game']['loop']['keys'];
 			}
 		}
 		if (GLOBALS['keys_pressed'][CONFIG['game']['shortcut']['pause']]) // Pause the game when p is pressed

@@ -5,11 +5,11 @@ class Cooldown
 		this.game = game;
 		if (!check_type(CONFIG['game']['ship']['cooldown']['invincible_time'], 'number', [], true))
 		{
-			throw 'default invincible cooldown time has an unexpected value or type';
+			throw LANG['error']['game']['cooldown']['invincible_time_type'];
 		}
 		if (!check_type(CONFIG['game']['ship']['cooldown']['shoot_time'], 'number', [], true))
 		{
-			throw 'default shoot cooldown time has an unexpected value or type';
+			throw LANG['error']['game']['cooldown']['shoot_time_type'];
 		}
 		this.invincible = {
 			game: game,
