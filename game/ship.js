@@ -37,7 +37,7 @@ class Ship
 	{
 		if (this.cooldown.invincible.active)
 		{
-			if (!this.cooldown.invincible.time%2 === 0) // The ship is invicible: it is blinking
+			if (!this.cooldown.invincible.time%4 === 0) // The ship is invicible: it is blinking
 			{
 				return 0;
 			}
