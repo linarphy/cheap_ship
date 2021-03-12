@@ -24,7 +24,7 @@ class Enemy
 		}
 		if (!check_type(poly, 'array', ['.', 2], true))
 		{
-			throw LANG['error']['game']['enemy']'poly_type'];
+			throw LANG['error']['game']['enemy']['poly_type'];
 		}
 		if (!check_type(GLOBALS['color']['enemy']['main'], 'array', [3], true))
 		{
