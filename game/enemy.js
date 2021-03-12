@@ -1,6 +1,6 @@
 class Enemy
 {
-	constructor (game, position, speed, hp, pattern, poly)
+	constructor (game, position, speed, hp, pattern, poly, color = GLOBALS['color']['enemy']['main'])
 	{
 		if (!check_type(game, 'object'))
 		{
@@ -26,7 +26,7 @@ class Enemy
 		{
 			throw LANG['error']['game']['enemy']['poly_type'];
 		}
-		if (!check_type(GLOBALS['color']['enemy']['main'], 'array', [3], true))
+		if (!check_type(color, 'array', [2, 3], true))
 		{
 			throw 'color has an unexpected type or value';
 		}
@@ -37,7 +37,7 @@ class Enemy
 		this.hp = hp;
 		this.pattern = pattern;
 		this.poly = GLOBALS['screen'].to_poly(this.position, GLOBALS['screen'].to_vectors(poly));
-		this.color = GLOBALS['color']['enemy']['main'];
+		this.color = color[CONFIG['game']['color-scheme']];
 		this.draw();
 	}
 

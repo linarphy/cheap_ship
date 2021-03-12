@@ -39,11 +39,10 @@ class Ship
 		{
 			if (this.cooldown.invincible.time%3 === 0) // The ship is invincible: it is blinking
 			{
-				console.log(this.cooldown.invincible.time);
 				return 0;
 			}
 		}
-		GLOBALS['screen'].draw_poly(this.poly, 'rgb('+this.color[0]+','+this.color[1]+','+this.color[2]+')');
+		GLOBALS['screen'].draw_poly(this.poly, this.color);
 	}
 
 	check_coordinate (coordinate)
