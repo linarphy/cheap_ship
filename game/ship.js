@@ -18,7 +18,7 @@ class Ship
 		{
 			throw LANG['error']['game']['ship']['poly_type'];
 		}
-		if (!check_type(CONFIG['game']['ship']['color'], 'array', [3], true))
+		if (!check_type(GLOBALS['color']['ship']['main'], 'array', [3], true))
 		{
 			throw LANG['error']['game']['ship']['color_type'];
 		}
@@ -27,7 +27,7 @@ class Ship
 		this.position = [0, 0];
 		this.poly = GLOBALS['screen'].to_poly(this.position, GLOBALS['screen'].to_vectors(CONFIG['game']['ship']['poly']));
 		this.cooldown = new Cooldown(game);
-		this.color = CONFIG['game']['ship']['color'];
+		this.color = GLOBALS['color']['ship']['main'];
 		this.game = game;
 		this.draw();
 	}
@@ -117,7 +117,7 @@ class Ship
 	destroy ()
 	/* Destroys the ship */
 	{
-		GLOBALS['screen'].write(LANG['game']['loose']);
+		GLOBALS['screen'].write(LANG['game']['loose'], 'middle', GLOBALS['color']['string']['loose']);
 		this.game.is_running = false;
 		this.game.is_ended = true;
 	}

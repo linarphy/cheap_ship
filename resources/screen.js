@@ -149,7 +149,7 @@ GLOBALS['screen'] = {
 		}
 		return false;
 	},
-	draw_poly: function(polygon, color='white', type='stroke')
+	draw_poly: function(polygon, color=[255, 255, 255], type='stroke')
 	{
 		let ctx = GLOBALS['canvas'].getContext('2d');
 		ctx.beginPath();
@@ -164,21 +164,30 @@ GLOBALS['screen'] = {
 		switch (type)
 		{
 			case 'stroke':
-				ctx.strokeStyle = color;
+				ctx.strokeStyle = "rgb("+color[0]+", "+color[1]+", "+color[2]+")";
 				ctx.stroke();
 				break;
 			case 'fill':
-				ctx.fillStyle = color;
+				ctx.fillStyle = "rgb("+color[0]+", "+color[1]+", "+color[2]+")";
 				ctx.fill();
 				break;
 			default:
 				throw 'unknown type';
 		}
 	},
-	write: function(text, position='middle', color='white', font='sans-serif', size=50, type='normal')
+	write: function(text, position='middle', color=[255, 255, 255], font='sans-serif', size='auto', type='normal')
 	{
 		let ctx = GLOBALS['canvas'].getContext('2d');
-		ctx.fillStyle = color;
+		ctx.fillStyle = "rgb("+color[0]+", "+color[1]+", "+color[2]+")";
+		if (size === 'auto')
+		{
+			size = (CONFIG['game']['border'][0]['max'] - CONFIG['game']['border'][0]['min'])/text.length;
+			console.log(size);
+			if (size > CONFIG['game']['string']['size_max'])
+			{
+				size = CONFIG['game']['string']['size_max'];
+			}
+		}
 		ctx.font = type+' '+size+'px '+font;
 		if (position === 'middle')
 		{

@@ -1,0 +1,13 @@
+{
+	"lang": {
+		"page": {
+			"title": "Cheap Ship"
+		},
+		"game": {
+			"level": "Niveau",
+			"fps": "FPS",
+			"win": "Vous avez gagné!",
+			"loose": "Vous avez perdu!"
+		}
+	}
+}

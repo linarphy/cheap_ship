@@ -19,7 +19,7 @@ class Cooldown
 			{
 				this.time = CONFIG['game']['ship']['cooldown']['invincible_time'];
 				this.active = true;
-				this.game.ship.color=CONFIG['game']['ship']['color_take_damage'];
+				this.game.ship.color=GLOBALS['color']['ship']['invincible'];
 			},
 		};
 		this.shoot = {
@@ -41,7 +41,7 @@ class Cooldown
 			if (this.invincible.time < 0)
 			{
 				this.invincible.active = false;
-				this.game.ship.color=CONFIG['game']['ship']['color'];
+				this.game.ship.color=GLOBALS['color']['ship']['main'];
 			}
 			else
 			{

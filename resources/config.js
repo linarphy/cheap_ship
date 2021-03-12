@@ -11,7 +11,7 @@ var CONFIG={
 	}
 };
 
-CONFIG['lang_available']=['en'];
+CONFIG['lang_available']=['en', 'fr'];
 /* [COLOR-SCHEMES] */
 CONFIG.__get('color-schemes')['available']=['light', 'dark'];
 /* [/COLOR-SCHEMES] */
@@ -20,6 +20,10 @@ CONFIG.__get('color-schemes')['available']=['light', 'dark'];
 CONFIG.__get('user')['lang']='en';
 /* [/USER] */
 /* [GAME] */
+async function load_color()
+{
+	GLOBALS['color'] = await get_json('./color-schemes/'+CONFIG['game']['color-scheme']+'.json', colors => colors);
+}
 /* Color-schemes used */
 CONFIG.__get('game')['color-scheme']='light';
 for (let color_scheme of CONFIG['color-schemes']['available'])
@@ -30,10 +34,10 @@ for (let color_scheme of CONFIG['color-schemes']['available'])
 	}
 	window.matchMedia("(prefers-color-scheme: "+color_scheme+")").addListener(function () { // if color-scheme change, we load it
 		CONFIG.__get('game')['color-scheme'] = color_scheme;
-		GLOBALS['color'] = get_json('./colors-schemes/'+color_scheme+'.json', colors => colors);
+		load_color();
 	});
 }
-GLOBALS['color'] = get_json('./colors-schemes/'+CONFIG['game']['colors-scheme']+'.json', colors => colors);
+load_color();
 /* Capp FPS */
 CONFIG.__get('game')['max_fps']=100;
 /* Damage done when collision occurs */
@@ -71,9 +75,10 @@ CONFIG.__get('game').__get('border').__get(1)['min']=0;
 CONFIG.__get('game').__get('border').__get(1)['max']=500;
 /* [/1] */
 /* [/BORDER] */
+/* [STRING] */
+CONFIG.__get('game').__get('string')['size_max']=50;
+/* [/STRING] */
 /* [SHIP] */
-/* Base color of the ship */
-CONFIG.__get('game').__get('ship')['color']=[0, 0, 255];
 /* Color of the ship when invincible */
 CONFIG.__get('game').__get('ship')['color_take_damage']=[255, 0, 0];
 /* Base HP of the ship */
