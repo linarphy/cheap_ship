@@ -182,7 +182,6 @@ GLOBALS['screen'] = {
 		if (size === 'auto')
 		{
 			size = (CONFIG['game']['border'][0]['max'] - CONFIG['game']['border'][0]['min'])/text.length;
-			console.log(size);
 			if (size > CONFIG['game']['string']['size_max'])
 			{
 				size = CONFIG['game']['string']['size_max'];

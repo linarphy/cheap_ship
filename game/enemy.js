@@ -93,7 +93,6 @@ class Enemy
 	{
 		if (!check_type(damage, 'number', [], true))
 		{
-			console.log(damage);
 			throw LANG['error']['game']['enemy']['take_damage']['damage_type'];
 		}
 		this.hp -= damage;
