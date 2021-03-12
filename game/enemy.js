@@ -26,7 +26,7 @@ class Enemy
 		{
 			throw LANG['error']['game']['enemy']['poly_type'];
 		}
-		if (!check_type(color[CONFIG['game']['color-scheme'], 'array', [2, 3], true))
+		if (!check_type(color[CONFIG['game']['color-scheme']], 'array', [3], true))
 		{
 			throw 'color has an unexpected type or value';
 		}
