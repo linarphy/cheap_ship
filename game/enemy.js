@@ -128,4 +128,10 @@ class Enemy
 		}
 		return false;
 	}
+
+	shoot ()
+	/* Makes the enemy shoot */
+	{
+		this.game.create_shoot(this.position, [0, CONFIG['game']['shoot']['speed'][0]], CONFIG['game']['shoot']['poly']);
+	}
 }
