@@ -91,7 +91,7 @@ class Enemy
 
 	take_damage (damage)
 	{
-		if (!check_type(damage, 'number'), [], true)
+		if (!check_type(damage, 'number', [], true))
 		{
 			console.log(damage);
 			throw LANG['error']['game']['enemy']['take_damage']['damage_type'];
