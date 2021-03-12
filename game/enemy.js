@@ -72,11 +72,13 @@ class Enemy
 	move ()
 	/* Moves the enemy */
 	{
+		console.log('start');
 		if (this.step > this.pattern.length - 1)
 		{
 			this.step = 0;
 		}
 		let coordinate = [this.speed[0]*this.pattern[this.step][0]+this.position[0], this.speed[1]*this.pattern[this.step][1]+this.position[1]]
+		console.log(coordinate);
 		if (this.check_coordinate(coordinate))
 		{
 			this.position = coordinate;
@@ -85,6 +87,7 @@ class Enemy
 		}
 		else
 		{
+			console.log('RIP');
 			this.destroy();
 		}
 	}
