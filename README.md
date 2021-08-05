@@ -40,6 +40,10 @@ see [documentation](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEve
 
 For now, there is no difference between an user configuration and a server one. That means that every player will get the same settings, including color-scheme and locale. This is not a good system, and it should be upgraded.
 
+## Level
+
+New level can be created by adding a `<level-name>.json` in `level` directory. Not documented *yet*, oen can check existing level to create a new one. After adding a file, one have to put it in the list `CONFIG['game']['level']` in `resources/config.js`.
+
 ## Authors
 
 * **gugus2000** - *initial work*
