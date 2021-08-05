@@ -50,4 +50,4 @@ We use [SemVer](http://semver.org/) for versioning.
 
 ## License
 
-This project is licensed under the Beerware License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the  Chocolate-Ware License - see the [LICENSE](LICENSE) file for details
