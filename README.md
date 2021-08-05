@@ -42,7 +42,7 @@ For now, there is no difference between an user configuration and a server one. 
 
 ## Level
 
-New level can be created by adding a `<level-name>.json` in `level` directory. Not documented *yet*, oen can check existing level to create a new one. After adding a file, one have to put it in the list `CONFIG['game']['level']` in `resources/config.js`.
+New level can be created by adding a `<level-name>.json` in `level` directory. Not documented *yet*, one can check existing level to create a new one. After adding a file, one have to put it in the list `CONFIG['game']['level']` in `resources/config.js`.
 
 ## Authors
 
